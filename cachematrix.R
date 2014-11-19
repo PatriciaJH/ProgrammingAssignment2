@@ -14,19 +14,19 @@
 
 makeCacheMatrix <- function(x = matrix()) {
     if (!is.numeric(x))
-        mode(x) <- "numeric"            # Force a numeric matrix. This could print an error instead...
+        mode(x) <- "numeric"      # Force a numeric matrix. This could print an error instead...
     inverse <- NULL
     
     set <- function(y) {
         if (!is.numeric(y))
-            mode(y) <- "numeric"        # Force a numeric matrix. Could also print an error
-        x <<- y                         # <<- searches parent enviroments for an existing variable; else defines it in the global env.
-        inverse <<- NULL                # see http://stat.ethz.ch/R-manual/R-patched/library/base/html/assignOps.html for more on <<-
+            mode(y) <- "numeric"  # Force a numeric matrix. Could also print an error
+        x <<- y                   # <<- search parent enviroments for existing x; else define it in the global env.
+        inverse <<- NULL          # see http://stat.ethz.ch/R-manual/R-patched/library/base/html/assignOps.html 
     }
     get <- function() x
     setinverse <- function(inv) inverse  <<- inv
     getinverse <- function() inverse
-    list(set = set, get = get,          # Return a list of function definitions, with variables x and inverse defined & set in their local environment.
+    list(set = set, get = get,          # Return list of fn definitions, w/ variables x,inverse defined & set vironment.
          setinverse = setinverse,
          getinverse = getinverse)
 }
