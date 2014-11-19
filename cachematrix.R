@@ -1,4 +1,4 @@
-## Class exercise: a numeric matrix that persistently caches its inverse.
+## Class exercise: a numeric matrix that caches its inverse during its lifetime.
 
 ## function makeCacheMatrix(x)
 ##
